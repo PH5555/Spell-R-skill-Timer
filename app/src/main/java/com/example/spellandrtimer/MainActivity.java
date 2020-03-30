@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button spell1, spell2;
     private SpellDialog spellDialog;
+    CurrentData[] data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +23,9 @@ public class MainActivity extends AppCompatActivity {
         spell2 = findViewById(R.id.btn_spell2);
 
         Intent intent = getIntent();
-        String id = intent.getStringExtra("SummonerID");
-        int level = intent.getIntExtra("Level", 0);
-        String Sum = intent.getStringExtra("Name");
-        String ac = intent.getStringExtra("AccountID");
+        data = (CurrentData[]) intent.getSerializableExtra("data");
+        Log.e("check", ""+data[0].getName());
 
-
-        Log.e("check", ""+id);
-        Log.e("check", ""+level);
-        Log.e("check", ""+Sum);
-        Log.e("check", ""+ac);
 
         spell1.setOnClickListener(new View.OnClickListener() {
             @Override
