@@ -98,13 +98,6 @@
                         android:src="@mipmap/ic_launcher"
                         android:id="@+id/img_spell1"/>
 
-                    <Button
-                        android:layout_width="68dp"
-                        android:layout_height="wrap_content"
-                        android:text="스펠 선택"
-                        android:textSize="11sp"
-                        android:id="@+id/btn_spell1"/>
-
 
                 </LinearLayout>
 
@@ -140,14 +133,6 @@
                         android:src="@mipmap/ic_launcher"
                         android:id="@+id/img_spell2"/>
 
-                    <Button
-                        android:layout_width="68dp"
-                        android:layout_height="wrap_content"
-                        android:text="스펠 선택"
-                        android:id="@+id/btn_spell2"
-                        android:textSize="11sp"/>
-
-
                 </LinearLayout>
 
                 <TextView
@@ -159,7 +144,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginLeft="15dp"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">

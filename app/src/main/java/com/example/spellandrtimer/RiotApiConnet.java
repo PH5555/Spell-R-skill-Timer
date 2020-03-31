@@ -5,6 +5,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import java.util.*;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +30,8 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+import javax.security.auth.login.LoginException;
+
 
 public class RiotApiConnet extends AppCompatActivity {
 
@@ -34,7 +39,10 @@ public class RiotApiConnet extends AppCompatActivity {
     Summoner summoner;
     String name;
     StringBuilder sb;
-    CurrentData[] data;
+    CurrentData[] teamA; //teamID : 100
+    CurrentData[] teamB; //teamID : 200
+    int TeamID = 0;
+    Boolean error = false;
 
     private class ApiTask extends AsyncTask<String, Boolean, Boolean> {
         @Override
@@ -46,7 +54,7 @@ public class RiotApiConnet extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... strings) {
 
-            ApiConfig config = new ApiConfig().setKey("RGAPI-e5bb440a-9c9a-41f3-a81f-55d12dcefbe1");
+            ApiConfig config = new ApiConfig().setKey("RGAPI-14f694cf-2a14-4037-a8c5-95ed1d680a3c");
             RiotApi api = new RiotApi(config);
 
             try {
@@ -55,39 +63,46 @@ public class RiotApiConnet extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            String summonerID = summoner.getId();
-            String api_key = "RGAPI-e5bb440a-9c9a-41f3-a81f-55d12dcefbe1";
-            String api_url = "https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + summonerID + "?api_key=" + api_key;
-            try {
-                URL url = new URL(api_url);
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("GET");
-                int code = con.getResponseCode();
-                BufferedReader br;
-                if(code == 200) {
-                    br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                } else {
-                    br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                }
-                sb = new StringBuilder();
-
-                String line;
-
-                while ((line = br.readLine()) != null) {
-                    sb.append(line + "\n");
-                }
-
-                br.close();
-                con.disconnect();
-                JsonParsing(sb.toString());
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
+            if(summoner.getId() == null) {
+                Log.e("Error!!!", "소환사이름 존재 x or api key 만료");
+                error = true;
             }
+            else {
+                String summonerID = summoner.getId();
+                Log.e("id", ""+summonerID);
+                String api_key = "RGAPI-14f694cf-2a14-4037-a8c5-95ed1d680a3c";
+                String api_url = "https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + summonerID + "?api_key=" + api_key;
+                try {
+                    URL url = new URL(api_url);
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setRequestMethod("GET");
+                    int code = con.getResponseCode();
+                    BufferedReader br;
+                    if(code == 200) {
+                        br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                        sb = new StringBuilder();
 
+                        String line;
 
+                        while ((line = br.readLine()) != null) {
+                            sb.append(line + "\n");
+                        }
+                        br.close();
+
+                        con.disconnect();
+                        JsonParsing(sb.toString());
+                    } else {
+                        Log.e("Error~!", ""+code);
+                        //에러 발생
+                        error = true;
+                    }
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             return null;
         }
 
@@ -97,7 +112,20 @@ public class RiotApiConnet extends AppCompatActivity {
             progress.setIndeterminate(false);
 
             Intent intent = new Intent(RiotApiConnet.this, MainActivity.class);
-            intent.putExtra("data", data);
+
+            if(error) {
+                Toast.makeText(getApplicationContext(), "게임중이 아닙니다.", Toast.LENGTH_SHORT).show();
+                Intent mintent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(mintent);
+                finish();
+            }
+
+            if(teamA[0].getTeamid() == TeamID) {
+                intent.putExtra("data", teamB);
+            }
+            else {
+                intent.putExtra("data", teamA);
+            }
 
             startActivity(intent);
             finish();
@@ -110,7 +138,8 @@ public class RiotApiConnet extends AppCompatActivity {
         setContentView(R.layout.activity_riot_api_connet);
 
         progress = findViewById(R.id.progress);
-        data = new CurrentData[10];
+        teamA = new CurrentData[5];
+        teamB = new CurrentData[5];
 
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
@@ -120,36 +149,78 @@ public class RiotApiConnet extends AppCompatActivity {
     }
 
     private void JsonParsing(String s) {
+
+        int teamAnum = 0;
+        int teamBnum = 0;
+
         try {
             JSONObject jsonObject = new JSONObject(s);
             JSONArray participantsArray = jsonObject.getJSONArray("participants");
+
             for (int i = 0; i < participantsArray.length(); i++) {
                 JSONObject current = participantsArray.getJSONObject(i);
 
-                data[i] = new CurrentData();
+                Log.e("for check", ""+i);
 
-                data[i].setChampionid(current.getLong("championId"));
-                data[i].setName(current.getString("summonerName"));
-                data[i].setSpell1id(current.getLong("spell1Id"));
-                data[i].setSpell2id(current.getLong("spell2Id"));
-                data[i].setTeamid(current.getLong("teamId"));
+                if((int) current.getLong("teamId") == 100) {
 
-                JSONObject rune = current.getJSONObject("perks");
+                    Log.e("teama", ""+i);
 
-                data[i].setPerkstyle(rune.getLong("perkIds"));
-                data[i].setPerksubstyle(rune.getLong("perkSubStyle"));
+                    teamA[teamAnum] = new CurrentData();
 
-                JSONArray runeid = rune.getJSONArray("perkIds");
+                    teamA[teamAnum].setChampionid(current.getLong("championId"));
+                    teamA[teamAnum].setName(current.getString("summonerName"));
+                    teamA[teamAnum].setSpell1id(current.getLong("spell1Id"));
+                    teamA[teamAnum].setSpell2id(current.getLong("spell2Id"));
+                    teamA[teamAnum].setTeamid(current.getLong("teamId"));
 
-                data[i].setPerkid1(runeid.getLong(0));
-                data[i].setPerkid2(runeid.getLong(1));
-                data[i].setPerkid3(runeid.getLong(2));
-                data[i].setPerkid4(runeid.getLong(3));
-                data[i].setPerkid5(runeid.getLong(4));
-                data[i].setPerkid6(runeid.getLong(5));
-                data[i].setPerkid7(runeid.getLong(6));
-                data[i].setPerkid8(runeid.getLong(7));
-                data[i].setPerkid9(runeid.getLong(8));
+                    JSONObject rune = current.getJSONObject("perks");
+
+                    JSONArray runeid = rune.getJSONArray("perkIds");
+
+                    teamA[teamAnum].setPerkid1(runeid.getLong(0));
+                    teamA[teamAnum].setPerkid2(runeid.getLong(1));
+                    teamA[teamAnum].setPerkid3(runeid.getLong(2));
+                    teamA[teamAnum].setPerkid4(runeid.getLong(3));
+                    teamA[teamAnum].setPerkid5(runeid.getLong(4));
+                    teamA[teamAnum].setPerkid6(runeid.getLong(5));
+                    teamA[teamAnum].setPerkid7(runeid.getLong(6));
+                    teamA[teamAnum].setPerkid8(runeid.getLong(7));
+                    teamA[teamAnum].setPerkid9(runeid.getLong(8));
+
+                    teamAnum++;
+                } else {
+
+                    Log.e("teamb", ""+i);
+                    teamB[teamBnum] = new CurrentData();
+
+                    teamB[teamBnum].setChampionid(current.getLong("championId"));
+                    teamB[teamBnum].setName(current.getString("summonerName"));
+                    teamB[teamBnum].setSpell1id(current.getLong("spell1Id"));
+                    teamB[teamBnum].setSpell2id(current.getLong("spell2Id"));
+                    teamB[teamBnum].setTeamid(current.getLong("teamId"));
+
+                    JSONObject rune = current.getJSONObject("perks");
+
+                    JSONArray runeid = rune.getJSONArray("perkIds");
+
+                    teamB[teamBnum].setPerkid1(runeid.getLong(0));
+                    teamB[teamBnum].setPerkid2(runeid.getLong(1));
+                    teamB[teamBnum].setPerkid3(runeid.getLong(2));
+                    teamB[teamBnum].setPerkid4(runeid.getLong(3));
+                    teamB[teamBnum].setPerkid5(runeid.getLong(4));
+                    teamB[teamBnum].setPerkid6(runeid.getLong(5));
+                    teamB[teamBnum].setPerkid7(runeid.getLong(6));
+                    teamB[teamBnum].setPerkid8(runeid.getLong(7));
+                    teamB[teamBnum].setPerkid9(runeid.getLong(8));
+
+                    teamBnum++;
+                }
+
+                if(current.getString("summonerName").equals(name) ||
+                        current.getString("summonerName").toLowerCase().equals(name.toLowerCase())) {
+                    TeamID = (int) current.getLong("teamId");
+                }
 
             }
         } catch (JSONException e) {
