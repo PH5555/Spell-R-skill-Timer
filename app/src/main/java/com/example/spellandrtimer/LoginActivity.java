@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,10 +25,18 @@ public class LoginActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RiotApiConnet.class);
-                intent.putExtra("name", edt_id.getText().toString());
-                startActivity(intent);
-                finish();
+
+                String name = edt_id.getText().toString();
+
+                if(name.getBytes().length <= 0) {
+                    Toast.makeText(getApplicationContext(), "소환사명을 입력해주세요", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(LoginActivity.this, RiotApiConnet.class);
+                    intent.putExtra("name", edt_id.getText().toString());
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }
