@@ -150,6 +150,8 @@ public class ChampionList {
             case 350 : return "yuumi";//유미
             case 141 : return "kayn";//케인
             case 517 : return "sylas";//사일러스
+            case 518 : return "neeko";//니코
+
         }
         return "";
     }

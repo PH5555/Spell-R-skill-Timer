@@ -43,6 +43,8 @@ public class RiotApiConnet extends AppCompatActivity {
     CurrentData[] teamB; //teamID : 200
     int TeamID = 0;
     Boolean error = false;
+    Boolean isExsist = false;
+    int errorcode = 0;
 
     private class ApiTask extends AsyncTask<String, Boolean, Boolean> {
         @Override
@@ -54,23 +56,14 @@ public class RiotApiConnet extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... strings) {
 
-            ApiConfig config = new ApiConfig().setKey("RGAPI-b2600b16-9aa2-4a47-ad73-0fd7bafb8c3d");
+            ApiConfig config = new ApiConfig().setKey("RGAPI-afd95efc-4a4a-45dd-80e4-114f3b3fa224");
             RiotApi api = new RiotApi(config);
 
             try {
                 summoner = api.getSummonerByName(Platform.KR, name);
-            } catch (RiotApiException e) {
-                e.printStackTrace();
-            }
-
-            if(summoner.getId() == null) {
-                Log.e("Error!!!", "소환사이름 존재 x or api key 만료");
-                error = true;
-            }
-            else {
                 String summonerID = summoner.getId();
                 Log.e("id", ""+summonerID);
-                String api_key = "RGAPI-b2600b16-9aa2-4a47-ad73-0fd7bafb8c3d";
+                String api_key = "RGAPI-afd95efc-4a4a-45dd-80e4-114f3b3fa224";
                 String api_url = "https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + summonerID + "?api_key=" + api_key;
                 try {
                     URL url = new URL(api_url);
@@ -93,6 +86,7 @@ public class RiotApiConnet extends AppCompatActivity {
                         JsonParsing(sb.toString());
                     } else {
                         Log.e("Error~!", ""+code);
+                        errorcode = code;
                         //에러 발생
                         error = true;
                     }
@@ -102,7 +96,13 @@ public class RiotApiConnet extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            } catch (RiotApiException e) {
+                Log.e("Error", ""+"no exist");
+                isExsist = true;
+                e.printStackTrace();
             }
+
+
             return null;
         }
 
@@ -114,21 +114,34 @@ public class RiotApiConnet extends AppCompatActivity {
             Intent intent = new Intent(RiotApiConnet.this, MainActivity.class);
 
             if(error) {
-                Toast.makeText(getApplicationContext(), "게임중이 아닙니다.", Toast.LENGTH_SHORT).show();
+                if(errorcode == 400) {
+                    Toast.makeText(getApplicationContext(), "서버와의 통신이 원활하지 않습니다. 잠시 후 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else if(errorcode == 404) {
+                    Toast.makeText(getApplicationContext(), "서버와의 통신이 원활하지 않습니다. 잠시 후 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                }
                 Intent mintent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(mintent);
                 finish();
             }
-
-            if(teamA[0].getTeamid() == TeamID) {
-                intent.putExtra("data", teamB);
+            else if(isExsist) {
+                Toast.makeText(getApplicationContext(), "존재하는 소환사 이름이 아닙니다.", Toast.LENGTH_SHORT).show();
+                Intent mintent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(mintent);
+                finish();
             }
             else {
-                intent.putExtra("data", teamA);
+                if(teamA[0].getTeamid() == TeamID) {
+                    intent.putExtra("data", teamB);
+                }
+                else {
+                    intent.putExtra("data", teamA);
+                }
+
+                startActivity(intent);
+                finish();
             }
 
-            startActivity(intent);
-            finish();
         }
     }
 

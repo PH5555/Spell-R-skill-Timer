@@ -40,20 +40,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell1_t"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:clickable="true"
+                            android:layout_gravity="center"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:id="@+id/img_spell1_t"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/top_spell1"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_tspell1"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -69,54 +86,35 @@
                     android:text="스펠2"
                     android:textSize="20sp"/>
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content">
 
                     <ImageView
+                        android:clickable="true"
                         android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:src="@mipmap/ic_launcher"
                         android:id="@+id/img_spell2_t"/>
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/top_spell2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="#80000000">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/txt_tspell2"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="쿨타임"
+                            android:textColor="#ffff"
+                            android:gravity="center"/>
+                    </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="궁극기"
-                    android:textSize="20sp"/>
-
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@mipmap/ic_launcher"
-                    android:id="@+id/img_r_t"/>
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp"/>
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -152,20 +150,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell1_j"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:clickable="true"
+                            android:layout_gravity="center"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:id="@+id/img_spell1_j"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/jungle_spell1"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_jspell1"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -186,49 +201,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell2_j"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/img_spell2_j"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/jungle_spell2"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_jspell2"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="궁극기"
-                    android:textSize="20sp"/>
-
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@mipmap/ic_launcher"
-                    android:id="@+id/img_r_j"/>
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp"/>
 
             </LinearLayout>
 
@@ -263,20 +266,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell1_m"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:clickable="true"
+                            android:layout_gravity="center"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:id="@+id/img_spell1_m"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/mid_spell1"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_mspell1"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -297,49 +317,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell2_m"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:clickable="true"
+                            android:layout_gravity="center"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:id="@+id/img_spell2_m"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/mid_spell2"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_mspell2"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="궁극기"
-                    android:textSize="20sp"/>
-
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@mipmap/ic_launcher"
-                    android:id="@+id/img_r_m"/>
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp"/>
 
             </LinearLayout>
 
@@ -375,20 +383,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell1_a"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:clickable="true"
+                            android:layout_gravity="center"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:id="@+id/img_spell1_a"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/ad_spell1"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_aspell1"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -409,49 +434,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell2_a"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:clickable="true"
+                            android:layout_gravity="center"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:id="@+id/img_spell2_a"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/ad_spell2"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_aspell2"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="궁극기"
-                    android:textSize="20sp"/>
-
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@mipmap/ic_launcher"
-                    android:id="@+id/img_r_a"/>
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp"/>
 
             </LinearLayout>
 
@@ -487,20 +500,37 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell1_s"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:clickable="true"
+                            android:layout_gravity="center"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:id="@+id/img_spell1_s"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/sup_spell1"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_sspell1"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -521,57 +551,42 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell2_s"/>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:clickable="true"
+                            android:layout_gravity="center"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:src="@mipmap/ic_launcher"
+                            android:id="@+id/img_spell2_s"/>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/sup_spell2"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="#80000000">
+
+                            <TextView
+                                android:id="@+id/txt_sspell2"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:text="쿨타임"
+                                android:textColor="#ffff"
+                                android:gravity="center"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="5dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="궁극기"
-                    android:textSize="20sp"/>
-
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@mipmap/ic_launcher"
-                    android:id="@+id/img_r_s"/>
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="20sp"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
-
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
