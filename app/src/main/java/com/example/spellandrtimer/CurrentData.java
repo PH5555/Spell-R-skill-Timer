@@ -1,6 +1,8 @@
 package com.example.spellandrtimer;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CurrentData implements Serializable {
     private long teamid;

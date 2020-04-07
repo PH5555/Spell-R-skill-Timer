@@ -2,7 +2,7 @@ package com.example.spellandrtimer;
 
 public class ChampionList {
     String getName(int s) { //챔피언 148개 현재 133개
-        //없는것 : 니코, 사일러스, 카밀
+        //없는것 : 카밀
         switch (s) {
             case 266: return "aatrox";
             case 412: return "thresh";

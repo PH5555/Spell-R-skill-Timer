@@ -56,14 +56,14 @@ public class RiotApiConnet extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... strings) {
 
-            ApiConfig config = new ApiConfig().setKey("RGAPI-afd95efc-4a4a-45dd-80e4-114f3b3fa224");
+            ApiConfig config = new ApiConfig().setKey("RGAPI-fd943204-b812-432b-99d9-c2eb1ec59c4f");
             RiotApi api = new RiotApi(config);
 
             try {
                 summoner = api.getSummonerByName(Platform.KR, name);
                 String summonerID = summoner.getId();
                 Log.e("id", ""+summonerID);
-                String api_key = "RGAPI-afd95efc-4a4a-45dd-80e4-114f3b3fa224";
+                String api_key = "RGAPI-fd943204-b812-432b-99d9-c2eb1ec59c4f";
                 String api_url = "https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + summonerID + "?api_key=" + api_key;
                 try {
                     URL url = new URL(api_url);
@@ -173,11 +173,7 @@ public class RiotApiConnet extends AppCompatActivity {
             for (int i = 0; i < participantsArray.length(); i++) {
                 JSONObject current = participantsArray.getJSONObject(i);
 
-                Log.e("for check", ""+i);
-
                 if((int) current.getLong("teamId") == 100) {
-
-                    Log.e("teama", ""+i);
 
                     teamA[teamAnum] = new CurrentData();
 
@@ -204,7 +200,6 @@ public class RiotApiConnet extends AppCompatActivity {
                     teamAnum++;
                 } else {
 
-                    Log.e("teamb", ""+i);
                     teamB[teamBnum] = new CurrentData();
 
                     teamB[teamBnum].setChampionid(current.getLong("championId"));
