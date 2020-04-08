@@ -1,5 +1,6 @@
 package com.example.spellandrtimer;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_tspell1, txt_tspell2, txt_jspell1, txt_jspell2, txt_mspell1, txt_mspell2, txt_aspell1, txt_aspell2, txt_sspell1, txt_sspell2;
     Boolean[] checkTime = new Boolean[10];
     Boolean[] checkItem = new Boolean[5]; //아이오니아 아이템 클릭 시 true
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
