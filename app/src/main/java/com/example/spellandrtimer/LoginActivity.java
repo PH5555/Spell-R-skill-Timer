@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -19,6 +21,10 @@ public class LoginActivity extends AppCompatActivity {
     EditText edt_id;
     Button btn_next;
     TextView textView;
+    Spinner spinner;
+    ArrayAdapter<String> arrayAdapter;
+    ArrayList arrayList = new ArrayList<>();
+    String platform;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +34,34 @@ public class LoginActivity extends AppCompatActivity {
         edt_id = findViewById(R.id.edt_id);
         btn_next = findViewById(R.id.btn_next);
         textView = findViewById(R.id.textview);
+        spinner = findViewById(R.id.spinner);
 
         textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        arrayList.add("KR");
+        arrayList.add("JP");
+        arrayList.add("EUW");
+        arrayList.add("EUNE");
+        arrayList.add("BR");
+        arrayList.add("LAN");
+        arrayList.add("LAS");
+        arrayList.add("NA");
+        arrayList.add("OCE");
+        arrayList.add("RU");
+        arrayList.add("TR");
+
+        arrayAdapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList);
+        spinner.setAdapter(arrayAdapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                platform = (String) arrayList.get(i);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
 
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     Intent intent = new Intent(LoginActivity.this, RiotApiConnet.class);
                     intent.putExtra("name", edt_id.getText().toString());
+                    intent.putExtra("platform", platform);
                     startActivity(intent);
                     finish();
                 }

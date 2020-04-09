@@ -38,6 +38,7 @@ public class RiotApiConnet extends AppCompatActivity {
     ProgressBar progress;
     Summoner summoner;
     String name;
+    String platform;
     StringBuilder sb;
     CurrentData[] teamA; //teamID : 100
     CurrentData[] teamB; //teamID : 200
@@ -56,14 +57,39 @@ public class RiotApiConnet extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... strings) {
 
-            ApiConfig config = new ApiConfig().setKey("RGAPI-fd943204-b812-432b-99d9-c2eb1ec59c4f");
+            ApiConfig config = new ApiConfig().setKey("RGAPI-1047db10-bf41-4ee9-8fb2-94642245ea1f");
             RiotApi api = new RiotApi(config);
 
             try {
+                switch (platform) {
+                    case "KR":  summoner = api.getSummonerByName(Platform.KR, name);
+                                break;
+                    case "NA":  summoner = api.getSummonerByName(Platform.NA, name);
+                                break;
+                    case "BR":  summoner = api.getSummonerByName(Platform.BR, name);
+                                break;
+                    case "EUNE":  summoner = api.getSummonerByName(Platform.EUNE, name);
+                                break;
+                    case "EUW":  summoner = api.getSummonerByName(Platform.EUW, name);
+                                break;
+                    case "JP":  summoner = api.getSummonerByName(Platform.JP, name);
+                                break;
+                    case "LAN":  summoner = api.getSummonerByName(Platform.LAN, name);
+                                break;
+                    case "LAS":  summoner = api.getSummonerByName(Platform.LAS, name);
+                                break;
+                    case "OCE":  summoner = api.getSummonerByName(Platform.OCE, name);
+                                break;
+                    case "RU":  summoner = api.getSummonerByName(Platform.RU, name);
+                                break;
+                    case "TR":  summoner = api.getSummonerByName(Platform.TR, name);
+                                break;
+
+                }
                 summoner = api.getSummonerByName(Platform.KR, name);
                 String summonerID = summoner.getId();
                 Log.e("id", ""+summonerID);
-                String api_key = "RGAPI-fd943204-b812-432b-99d9-c2eb1ec59c4f";
+                String api_key = "RGAPI-1047db10-bf41-4ee9-8fb2-94642245ea1f";
                 String api_url = "https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + summonerID + "?api_key=" + api_key;
                 try {
                     URL url = new URL(api_url);
@@ -156,6 +182,7 @@ public class RiotApiConnet extends AppCompatActivity {
 
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
+        platform = intent.getStringExtra("platform");
 
         ApiTask task = new ApiTask();
         task.execute();

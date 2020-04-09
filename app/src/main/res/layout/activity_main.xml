@@ -1,592 +1,546 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FBFBFB">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:layout_width="142dp"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:background="#6D6868">
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="무음모드"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <Switch
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="36dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/top"/>
+        
+        <ImageView
+            android:layout_marginLeft="12dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@mipmap/ic_launcher"/>
+        
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/rune"/>
+
+            <ImageView
+                android:layout_marginTop="4dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/shoe"/>
+            
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell1_t"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/top_spell1"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
+
+                <TextView
+                    android:id="@+id/txt_tspell1"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell2_t"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/top_spell2"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
+
+                <TextView
+                    android:id="@+id/txt_tspell2"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/jungle"/>
+
+        <ImageView
+            android:layout_marginLeft="12dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:layout_marginRight="19dp"
-                android:text="TOP"/>
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/rune"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠1"
-                    android:textSize="20sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:clickable="true"
-                            android:layout_gravity="center"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:id="@+id/img_spell1_t"/>
-
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/top_spell1"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
-
-                            <TextView
-                                android:id="@+id/txt_tspell1"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginLeft="7dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠2"
-                    android:textSize="20sp"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:clickable="true"
-                        android:layout_gravity="center"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:src="@mipmap/ic_launcher"
-                        android:id="@+id/img_spell2_t"/>
-
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:id="@+id/top_spell2"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="#80000000">
-
-                        <TextView
-                            android:id="@+id/txt_tspell2"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:text="쿨타임"
-                            android:textColor="#ffff"
-                            android:gravity="center"/>
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-            </LinearLayout>
+            <ImageView
+                android:layout_marginTop="4dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/shoe"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
+            <ImageView
+                android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="19dp"
-                android:text="JUNGLE"/>
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell1_j"/>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:visibility="gone"
+                android:id="@+id/jungle_spell1"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠1"
-                    android:textSize="20sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:clickable="true"
-                            android:layout_gravity="center"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:id="@+id/img_spell1_j"/>
-
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/jungle_spell1"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
-
-                            <TextView
-                                android:id="@+id/txt_jspell1"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
+                    android:id="@+id/txt_jspell1"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginLeft="7dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        </RelativeLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠2"
-                    android:textSize="20sp"/>
+        <RelativeLayout
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/img_spell2_j"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_gravity="center"
-                            android:clickable="true"
-                            android:src="@mipmap/ic_launcher" />
-
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/jungle_spell2"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
-
-                            <TextView
-                                android:id="@+id/txt_jspell2"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
+            <ImageView
+                android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="19dp"
-                android:text="MID"/>
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell2_j"/>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:visibility="gone"
+                android:id="@+id/jungle_spell2"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠1"
-                    android:textSize="20sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:clickable="true"
-                            android:layout_gravity="center"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:id="@+id/img_spell1_m"/>
-
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/mid_spell1"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
-
-                            <TextView
-                                android:id="@+id/txt_mspell1"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
+                    android:id="@+id/txt_jspell2"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginLeft="7dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        </RelativeLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠2"
-                    android:textSize="20sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/mid"/>
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginLeft="12dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@mipmap/ic_launcher"/>
 
-                        <ImageView
-                            android:clickable="true"
-                            android:layout_gravity="center"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:id="@+id/img_spell2_m"/>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/mid_spell2"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/rune"/>
 
-                            <TextView
-                                android:id="@+id/txt_mspell2"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <ImageView
+                android:layout_marginTop="4dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/shoe"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
+            <ImageView
+                android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="19dp"
-                android:text="AD"/>
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell1_m"/>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:visibility="gone"
+                android:id="@+id/mid_spell1"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠1"
-                    android:textSize="20sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:clickable="true"
-                            android:layout_gravity="center"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:id="@+id/img_spell1_a"/>
-
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/ad_spell1"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
-
-                            <TextView
-                                android:id="@+id/txt_aspell1"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
+                    android:id="@+id/txt_mspell1"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
             </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell2_m"/>
 
             <LinearLayout
-                android:layout_marginLeft="7dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:visibility="gone"
+                android:id="@+id/mid_spell2"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠2"
-                    android:textSize="20sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:clickable="true"
-                            android:layout_gravity="center"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:id="@+id/img_spell2_a"/>
-
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/ad_spell2"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
-
-                            <TextView
-                                android:id="@+id/txt_aspell2"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
+                    android:id="@+id/txt_mspell2"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
             </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/bottom"/>
+
+        <ImageView
+            android:layout_marginLeft="12dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/rune"/>
+
+            <ImageView
+                android:layout_marginTop="4dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/shoe"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
+            <ImageView
+                android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="19dp"
-                android:text="SUP"/>
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell1_a"/>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:visibility="gone"
+                android:id="@+id/ad_spell1"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠1"
-                    android:textSize="20sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:clickable="true"
-                            android:layout_gravity="center"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:id="@+id/img_spell1_s"/>
-
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/sup_spell1"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
-
-                            <TextView
-                                android:id="@+id/txt_sspell1"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
+                    android:id="@+id/txt_aspell1"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
             </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell2_a"/>
 
             <LinearLayout
-                android:layout_marginLeft="7dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:visibility="gone"
+                android:id="@+id/ad_spell2"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스펠2"
-                    android:textSize="20sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:clickable="true"
-                            android:layout_gravity="center"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:src="@mipmap/ic_launcher"
-                            android:id="@+id/img_spell2_s"/>
-
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/sup_spell2"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="#80000000">
-
-                            <TextView
-                                android:id="@+id/txt_sspell2"
-                                android:layout_width="48dp"
-                                android:layout_height="48dp"
-                                android:text="쿨타임"
-                                android:textColor="#ffff"
-                                android:gravity="center"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
+                    android:id="@+id/txt_aspell2"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
             </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginRight="5dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@drawable/support"/>
+
+        <ImageView
+            android:layout_marginLeft="12dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/rune"/>
+
+            <ImageView
+                android:layout_marginTop="4dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/shoe"/>
 
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell1_s"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/sup_spell1"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
+
+                <TextView
+                    android:id="@+id/txt_sspell1"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:clickable="true"
+                android:layout_gravity="center"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_spell2_s"/>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/sup_spell2"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="#80000000">
+
+                <TextView
+                    android:id="@+id/txt_sspell2"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:text="쿨타임"
+                    android:textColor="#ffff"
+                    android:gravity="center"/>
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
