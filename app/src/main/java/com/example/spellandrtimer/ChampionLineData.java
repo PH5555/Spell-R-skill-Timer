@@ -38,7 +38,7 @@ public class ChampionLineData
             case 154 : //자크
             case 24 : //잭스
             case 126 : //제이스
-           // case  : //카밀
+            case 164 : //카밀
             case 85 : //케넨
             case 10 : //케일
             case 133 : //퀸

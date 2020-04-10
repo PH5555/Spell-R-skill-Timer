@@ -138,7 +138,7 @@ public class ChampionList {
             case 59: return "jarvan";
             case 81: return "ezreal";
             case 875 : return "sett"; //세트
-            case 145 : return "kaiSa";//카이사
+            case 145 : return "kaisa";//카이사
             case 523 : return "aphelios";//아펠
             case 235 : return "senna";//세나
             case 142 : return "zoe";//조이
@@ -151,6 +151,7 @@ public class ChampionList {
             case 141 : return "kayn";//케인
             case 517 : return "sylas";//사일러스
             case 518 : return "neeko";//니코
+            case 164 : return "camille";
 
         }
         return "";

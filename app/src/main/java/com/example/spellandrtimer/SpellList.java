@@ -12,7 +12,7 @@ public class SpellList {
             case 4 : return "flash";
             case 6 : return "ghost";
             case 7 : return "heal";
-            case 13 : return "clarity"; //총명
+            case 13 : return "clarity"; //총명 사진없음. TODO:사진
             case 30 : return "to the king"; //왕을 향해! - 전설의 포로왕
             case 31 : return "poro toss"; //포로 던지기 - 전설의 포로왕
             case 33 : return "nexus siege";
