@@ -7,118 +7,176 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:gravity="center"
+    android:weightSum="640"
     android:background="#FBFBFB">
 
     <LinearLayout
-        android:gravity="center"
-        android:layout_width="142dp"
-        android:layout_height="35dp"
-        android:orientation="horizontal"
-        android:background="#6D6868">
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="10"/>
 
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="무음모드"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
+    <LinearLayout
+        android:weightSum="360"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="35"
+        android:orientation="horizontal">
 
-        <Switch
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="207"/>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="0px"
+            android:layout_weight="142"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:background="#6D6868">
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="무음모드"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <Switch
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="11"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="36dp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="36"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="60"
+        android:weightSum="360"
         android:orientation="horizontal">
-        
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="30"/>
+
         <ImageView
-            android:layout_marginRight="10dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
             android:src="@drawable/top"/>
-        
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="11"/>
+
         <ImageView
             android:id="@+id/img_top"
-            android:layout_marginLeft="12dp"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="56"
             android:src="@mipmap/ic_launcher"/>
-        
+
         <LinearLayout
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
+
+        <LinearLayout
+            android:layout_weight="28"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="60">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/rune"/>
 
                 <LinearLayout
                     android:visibility="visible"
                     android:id="@+id/rune_top"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="4"/>
+
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
                     android:id="@+id/t_shoe"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/shoe"/>
 
                 <LinearLayout
                     android:id="@+id/shoe_top"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
-            
+
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_t"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/top_spell1"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_tspell1"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -126,127 +184,170 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
-                android:layout_marginRight="10dp"
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_t"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/top_spell2"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_tspell2"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
             </LinearLayout>
 
         </RelativeLayout>
-        
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="45"/>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="50"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="60"
+        android:weightSum="360"
         android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="30"/>
+
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
             android:src="@drawable/jungle"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="11"/>
 
         <ImageView
             android:id="@+id/img_jungle"
-            android:layout_marginLeft="12dp"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="56"
             android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
+
+        <LinearLayout
+            android:layout_weight="28"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="60">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/rune"/>
 
                 <LinearLayout
-                    android:id="@+id/rune_jungle"
                     android:visibility="visible"
+                    android:id="@+id/rune_jungle"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="4"/>
+
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
                     android:id="@+id/j_shoe"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/shoe"/>
 
                 <LinearLayout
                     android:id="@+id/shoe_jungle"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_j"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/jungle_spell1"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_jspell1"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -254,31 +355,35 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_j"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/jungle_spell2"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_jspell2"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -286,95 +391,134 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="45"/>
+
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="50"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="60"
+        android:weightSum="360"
         android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="30"/>
+
         <ImageView
-            android:layout_marginRight="10dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
             android:src="@drawable/mid"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="11"/>
 
         <ImageView
             android:id="@+id/img_mid"
-            android:layout_marginLeft="12dp"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="56"
             android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
+
+        <LinearLayout
+            android:layout_weight="28"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="60">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/rune"/>
 
                 <LinearLayout
-                    android:id="@+id/rune_mid"
                     android:visibility="visible"
+                    android:id="@+id/rune_mid"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="4"/>
+
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
                     android:id="@+id/m_shoe"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/shoe"/>
 
                 <LinearLayout
                     android:id="@+id/shoe_mid"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_m"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/mid_spell1"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_mspell1"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -382,31 +526,35 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_m"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/mid_spell2"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_mspell2"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -414,95 +562,134 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="45"/>
+
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="50"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="60"
+        android:weightSum="360"
         android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="30"/>
+
         <ImageView
-            android:layout_marginRight="10dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
             android:src="@drawable/bottom"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="11"/>
 
         <ImageView
             android:id="@+id/img_ad"
-            android:layout_marginLeft="12dp"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="56"
             android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
+
+        <LinearLayout
+            android:layout_weight="28"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="60">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/rune"/>
 
                 <LinearLayout
-                    android:id="@+id/rune_ad"
                     android:visibility="visible"
+                    android:id="@+id/rune_ad"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="4"/>
+
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
                     android:id="@+id/a_shoe"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/shoe"/>
 
                 <LinearLayout
                     android:id="@+id/shoe_ad"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_a"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/ad_spell1"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_aspell1"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -510,31 +697,35 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_a"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/ad_spell2"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_aspell2"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -542,95 +733,134 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="45"/>
+
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="50"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="60"
+        android:weightSum="360"
         android:orientation="horizontal">
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="30"/>
+
         <ImageView
-            android:layout_marginRight="5dp"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
             android:src="@drawable/support"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="11"/>
 
         <ImageView
             android:id="@+id/img_sup"
-            android:layout_marginLeft="12dp"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="56"
             android:src="@mipmap/ic_launcher"/>
 
         <LinearLayout
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="10"/>
+
+        <LinearLayout
+            android:layout_weight="28"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="60">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/rune"/>
 
                 <LinearLayout
-                    android:id="@+id/rune_sup"
                     android:visibility="visible"
+                    android:id="@+id/rune_sup"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="4"/>
+
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_weight="28"
+                android:layout_width="match_parent"
+                android:layout_height="0px">
 
                 <ImageView
                     android:id="@+id/s_shoe"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/shoe"/>
 
                 <LinearLayout
                     android:id="@+id/shoe_sup"
                     android:background="#80000000"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
 
             </RelativeLayout>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_s"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/sup_spell1"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_sspell1"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -638,31 +868,35 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="19"/>
+
         <RelativeLayout
-            android:layout_marginRight="12dp"
-            android:layout_marginLeft="19dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="56"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <ImageView
                 android:clickable="true"
                 android:layout_gravity="center"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_s"/>
 
             <LinearLayout
                 android:visibility="gone"
                 android:id="@+id/sup_spell2"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="#80000000">
 
                 <TextView
                     android:id="@+id/txt_sspell2"
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="쿨타임"
                     android:textColor="#ffff"
                     android:gravity="center"/>
@@ -670,7 +904,16 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="45"/>
+
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="59"/>
 
 </LinearLayout>

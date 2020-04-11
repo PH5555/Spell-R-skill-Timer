@@ -7,42 +7,125 @@
     tools:context=".LoginActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#FBFBFB">
-
-    <ImageView
-        android:layout_marginBottom="54dp"
-        android:layout_width="183dp"
-        android:layout_height="183dp"
-        android:src="@mipmap/ic_launcher"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#000000"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Write down your nickname"/>
+    android:background="#FBFBFB"
+    android:weightSum="640">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="50"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="164"
         android:orientation="horizontal"
-        android:layout_marginTop="41dp"
-        android:gravity="center">
+        android:weightSum="360">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="89"/>
+
+        <ImageView
+            android:layout_weight="182"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="89"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="45"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="40"
+        android:weightSum="360">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="134"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="0px"
+            android:layout_weight="92"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="360"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="18">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="105"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:layout_width="0px"
+            android:layout_weight="150"
+            android:layout_height="match_parent"
+            android:text="Write down your nickname"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="105"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="41"/>
+
+
+    <LinearLayout
+        android:weightSum="360"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="60">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="33"/>
 
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_weight="210"
+            android:layout_width="0px"
+            android:layout_height="match_parent">
 
             <EditText
                 android:paddingLeft="5dp"
-                android:layout_width="200dp"
-                android:layout_height="48dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:id="@+id/edt_id"
                 android:background="@drawable/edittext" />
@@ -58,29 +141,91 @@
 
         </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="9"/>
+
         <Spinner
+            android:layout_weight="108"
             android:id="@+id/spinner"
-            android:layout_marginLeft="7dp"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"/>
+            android:layout_width="0px"
+            android:layout_height="match_parent"/>
+
 
     </LinearLayout>
 
-    <Button
-        android:layout_marginTop="49dp"
-        android:layout_width="180dp"
-        android:layout_height="40dp"
-        android:background="@drawable/button"
-        android:text="SIGN IN"
-        android:textColor="#1C2387"
-        android:textSize="18sp"
-        android:id="@+id/btn_next"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="41"/>
 
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="How to use this app?"
-        android:layout_marginTop="80dp"/>
+    <LinearLayout
+        android:weightSum="360"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="50">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="61"/>
+
+        <Button
+            android:layout_weight="238"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="SIGN IN"
+            android:textColor="#1C2387"
+            android:textSize="18sp"
+            android:id="@+id/btn_next"/>
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="61"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="83"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="20"
+        android:orientation="horizontal"
+        android:weightSum="360">
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="105"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/textview"
+            android:layout_width="0px"
+            android:layout_weight="150"
+            android:layout_height="match_parent"
+            android:text="How to use this app?" />
+
+        <LinearLayout
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="105"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="28"/>
+
 
 </LinearLayout>

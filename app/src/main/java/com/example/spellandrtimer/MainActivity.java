@@ -1,9 +1,11 @@
 package com.example.spellandrtimer;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -34,6 +36,28 @@ public class MainActivity extends AppCompatActivity {
     Boolean[] checkTime = new Boolean[10];
     Boolean[] checkItem = new Boolean[5]; //아이오니아 아이템 클릭 시 true
 
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("종료하시겠습니까?");
+        alert.setMessage("종료하시면 메인화면으로 돌아갑니다.")
+             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialogInterface, int i) {
+                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                     startActivity(intent);
+                 }
+             })
+             .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialogInterface, int i) {
+                     dialogInterface.cancel(); //TODO:광고삽입
+                 }
+             });
+        AlertDialog alertDialog = alert.create();
+        alertDialog.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -317,6 +341,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
 
     }
 

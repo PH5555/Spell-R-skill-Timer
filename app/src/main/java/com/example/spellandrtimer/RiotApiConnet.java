@@ -57,7 +57,7 @@ public class RiotApiConnet extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(String... strings) {
 
-            ApiConfig config = new ApiConfig().setKey("RGAPI-68ed4055-e38a-46fe-9f04-8dc40482dc3c");
+            ApiConfig config = new ApiConfig().setKey("RGAPI-25254f60-8605-4f73-8854-5c113205faae");
             RiotApi api = new RiotApi(config);
 
             try {
@@ -89,7 +89,7 @@ public class RiotApiConnet extends AppCompatActivity {
                 summoner = api.getSummonerByName(Platform.KR, name);
                 String summonerID = summoner.getId();
                 Log.e("id", ""+summonerID);
-                String api_key = "RGAPI-68ed4055-e38a-46fe-9f04-8dc40482dc3c";
+                String api_key = "RGAPI-25254f60-8605-4f73-8854-5c113205faae";
                 String api_url = "https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + summonerID + "?api_key=" + api_key;
                 try {
                     URL url = new URL(api_url);
