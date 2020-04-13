@@ -92,7 +92,6 @@ public class ChampionLineData
             case 143 : //자이라
             case 40 : //잔나
             case 101 : //제라스
-            case 26 : //질리언
             case 43 : //카르마
             case 44 : //타릭
             case 223 : //탐켄치

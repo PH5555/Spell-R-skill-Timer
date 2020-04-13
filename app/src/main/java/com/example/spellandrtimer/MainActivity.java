@@ -8,15 +8,20 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.PersistableBundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -33,8 +38,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView img_top, img_jungle, img_mid, img_ad, img_sup;
     LinearLayout rune_top, shoe_top,rune_jungle, shoe_jungle,rune_mid, shoe_mid,rune_ad, shoe_ad,rune_sup, shoe_sup;
     ImageView t_shoe, j_shoe, m_shoe, a_shoe, s_shoe;
+    Switch vib;
+    Boolean checkvib = false;
     Boolean[] checkTime = new Boolean[10];
     Boolean[] checkItem = new Boolean[5]; //아이오니아 아이템 클릭 시 true
+    SoundPool sp;
+    int soundID;
 
 
     @Override
@@ -114,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         m_shoe = findViewById(R.id.m_shoe);
         a_shoe = findViewById(R.id.a_shoe);
         s_shoe = findViewById(R.id.s_shoe);
+        vib = findViewById(R.id.vib);
 
         for (int i = 0; i < 10; i++) {
             checkTime[i] = false;
@@ -125,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         data = (CurrentData[]) intent.getSerializableExtra("data");
         setChampLine(data);
+        sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        soundID = sp.load(this, R.raw.sound, 1);
 
         setImage(img_spell1_t,img_spell2_t, img_top, rune_top, champLiine[0]);
         setImage(img_spell1_j,img_spell2_j, img_jungle, rune_jungle, champLiine[1]);
@@ -342,8 +354,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
+        vib.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b) {
+                    checkvib = true;
+                }else {
+                    checkvib = false;
+                }
+            }
+        });
     }
 
     void setImage(ImageView spell1, ImageView spell2, ImageView champ, LinearLayout rune, CurrentData mdata) {
@@ -420,13 +440,12 @@ public class MainActivity extends AppCompatActivity {
                     else {
                         setvisible.setVisibility(View.GONE);
                         cancel();
-
-                        //TODO : 소리나오게 하기
                     }
                 }
 
                 @Override
                 public void onFinish() {
+                    soundMake(checkvib);
                     checkTime[check] = false;
                     setvisible.setVisibility(View.GONE);
                 }
@@ -452,7 +471,7 @@ public class MainActivity extends AppCompatActivity {
 
         ChampionLineData championLineData = new ChampionLineData();
         for (int i = 0; i < 5; i++) { //원딜 결정
-            if(championLineData.getLine((int)data[i].getChampionid()) == 4 && i != pass[0]) {
+            if(championLineData.getLine((int)data[i].getChampionid()) == 4 && pass[i] == -1) {
                 champLiine[3] = data[i];
                 pass[i] = i;
                 break;
@@ -460,7 +479,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         for (int i = 0; i < 5; i++) { //서폿 결정
-            if(championLineData.getLine((int)data[i].getChampionid()) == 5 && i != pass[0] && i != pass[1]) {
+            if(championLineData.getLine((int)data[i].getChampionid()) == 5 && pass[i] == -1) {
                 champLiine[4] = data[i];
                 pass[i] = i;
                 break;
@@ -468,7 +487,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         for (int i = 0; i < 5; i++) { //탑 결정
-            if(championLineData.getLine((int)data[i].getChampionid()) == 1 && i != pass[0] && i != pass[1] && i != pass[2]) {
+            if(championLineData.getLine((int)data[i].getChampionid()) == 1 && pass[i] == -1) {
                 champLiine[0] = data[i];
                 pass[i] = i;
                 break;
@@ -484,6 +503,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+        }
+    }
+
+    void soundMake(Boolean check) {
+        if(check) {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(500);
+        }
+        else {
+            sp.play(soundID,1,1,0,0,1);
         }
     }
 }

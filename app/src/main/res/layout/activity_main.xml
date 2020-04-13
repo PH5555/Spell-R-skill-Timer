@@ -30,7 +30,7 @@
         <LinearLayout
             android:gravity="center"
             android:layout_width="0px"
-            android:layout_weight="142"
+            android:layout_weight="130"
             android:layout_height="35dp"
             android:orientation="horizontal"
             android:background="#6D6868">
@@ -40,11 +40,12 @@
                 android:textColor="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="무음모드"
+                android:text="진동모드"
                 android:textSize="15sp"
                 android:textStyle="bold"/>
 
             <Switch
+                android:id="@+id/vib"
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -53,7 +54,7 @@
         <LinearLayout
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="11"/>
+            android:layout_weight="23"/>
     </LinearLayout>
 
     <LinearLayout
