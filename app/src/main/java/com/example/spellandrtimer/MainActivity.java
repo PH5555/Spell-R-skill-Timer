@@ -23,8 +23,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import org.w3c.dom.Text;
 
@@ -47,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
     Boolean[] checkItem = new Boolean[5]; //아이오니아 아이템 클릭 시 true
     SoundPool sp;
     int soundID;
-
+    private AdView adBanner;
+    private InterstitialAd adFull;
 
     @Override
     public void onBackPressed() {
@@ -59,12 +65,20 @@ public class MainActivity extends AppCompatActivity {
                  public void onClick(DialogInterface dialogInterface, int i) {
                      Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                      startActivity(intent);
+
+                     if(adFull.isLoaded()) {
+                         adFull.show();
+                     }
+                     else {
+                         Log.e("error", "error");
+                     }
+                     finish();
                  }
              })
              .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                  @Override
                  public void onClick(DialogInterface dialogInterface, int i) {
-                     dialogInterface.cancel(); //TODO:광고삽입
+                     dialogInterface.cancel();
                  }
              });
         AlertDialog alertDialog = alert.create();
@@ -137,6 +151,15 @@ public class MainActivity extends AppCompatActivity {
         glide_arune = findViewById(R.id.glide_arune);
         glide_srune = findViewById(R.id.glide_srune);
         vib = findViewById(R.id.vib);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        adBanner = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adBanner.loadAd(adRequest);
+
+        adFull = new InterstitialAd(this);
+        adFull.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        adFull.loadAd(new AdRequest.Builder().build());
 
         Glide.with(this).load(R.drawable.top).into(glide_top);
         Glide.with(this).load(R.drawable.jungle).into(glide_jungle);

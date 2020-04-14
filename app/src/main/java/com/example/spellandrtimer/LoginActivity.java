@@ -14,6 +14,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
@@ -26,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     ArrayList arrayList = new ArrayList<>();
     String platform;
     final int UNCONNECTED = 3;
+    private AdView adBanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,11 @@ public class LoginActivity extends AppCompatActivity {
 
         arrayAdapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item,arrayList);
         spinner.setAdapter(arrayAdapter);
+
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        adBanner = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adBanner.loadAd(adRequest);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
