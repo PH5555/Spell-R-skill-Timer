@@ -24,6 +24,8 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import org.w3c.dom.Text;
 
 import java.util.Locale;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView img_top, img_jungle, img_mid, img_ad, img_sup;
     LinearLayout rune_top, shoe_top,rune_jungle, shoe_jungle,rune_mid, shoe_mid,rune_ad, shoe_ad,rune_sup, shoe_sup;
     ImageView t_shoe, j_shoe, m_shoe, a_shoe, s_shoe;
+    ImageView glide_top,glide_jungle,glide_mid,glide_ad,glide_sup,glide_trune,glide_jrune,glide_mrune,glide_arune,glide_srune;
     Switch vib;
     Boolean checkvib = false;
     Boolean[] checkTime = new Boolean[10];
@@ -123,7 +126,33 @@ public class MainActivity extends AppCompatActivity {
         m_shoe = findViewById(R.id.m_shoe);
         a_shoe = findViewById(R.id.a_shoe);
         s_shoe = findViewById(R.id.s_shoe);
+        glide_top = findViewById(R.id.glide_top);
+        glide_jungle = findViewById(R.id.glide_jungle);
+        glide_mid = findViewById(R.id.glide_mid);
+        glide_ad = findViewById(R.id.glide_ad);
+        glide_sup = findViewById(R.id.glide_sup);
+        glide_trune = findViewById(R.id.glide_trune);
+        glide_jrune = findViewById(R.id.glide_jrune);
+        glide_mrune = findViewById(R.id.glide_mrune);
+        glide_arune = findViewById(R.id.glide_arune);
+        glide_srune = findViewById(R.id.glide_srune);
         vib = findViewById(R.id.vib);
+
+        Glide.with(this).load(R.drawable.top).into(glide_top);
+        Glide.with(this).load(R.drawable.jungle).into(glide_jungle);
+        Glide.with(this).load(R.drawable.mid).into(glide_mid);
+        Glide.with(this).load(R.drawable.bottom).into(glide_ad);
+        Glide.with(this).load(R.drawable.support).into(glide_sup);
+        Glide.with(this).load(R.drawable.rune).into(glide_trune);
+        Glide.with(this).load(R.drawable.rune).into(glide_jrune);
+        Glide.with(this).load(R.drawable.rune).into(glide_mrune);
+        Glide.with(this).load(R.drawable.rune).into(glide_arune);
+        Glide.with(this).load(R.drawable.rune).into(glide_srune);
+        Glide.with(this).load(R.drawable.shoe).into(t_shoe);
+        Glide.with(this).load(R.drawable.shoe).into(j_shoe);
+        Glide.with(this).load(R.drawable.shoe).into(m_shoe);
+        Glide.with(this).load(R.drawable.shoe).into(a_shoe);
+        Glide.with(this).load(R.drawable.shoe).into(s_shoe);
 
         for (int i = 0; i < 10; i++) {
             checkTime[i] = false;
@@ -389,11 +418,13 @@ public class MainActivity extends AppCompatActivity {
         String rescham = "@drawable/" + championList.getName((int) mcham);
         String packName = this.getPackageName();
 
-        spell1.setImageResource(getResources().getIdentifier(resspell1,"drawable", packName));
-        spell2.setImageResource(getResources().getIdentifier(resspell2,"drawable", packName));
-        champ.setImageResource(getResources().getIdentifier(rescham,"drawable", packName));
-
-
+        Glide.with(this).load(getResources().getIdentifier(resspell1,"drawable", packName)).into(spell1);
+        Glide.with(this).load(getResources().getIdentifier(resspell2,"drawable", packName)).into(spell2);
+        Glide.with(this).load(getResources().getIdentifier(rescham,"drawable", packName)).into(champ);
+//
+//        spell1.setImageResource(getResources().getIdentifier(resspell1,"drawable", packName));
+//        spell2.setImageResource(getResources().getIdentifier(resspell2,"drawable", packName));
+//        champ.setImageResource(getResources().getIdentifier(rescham,"drawable", packName));
     }
 
     void setCoolDown(final LinearLayout setvisible, TextView text, int spell, final int check, CurrentData data, Boolean item) {

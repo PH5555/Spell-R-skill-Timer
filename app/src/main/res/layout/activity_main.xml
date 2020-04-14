@@ -63,6 +63,7 @@
         android:layout_weight="36"/>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="60"
@@ -75,10 +76,10 @@
             android:layout_weight="30"/>
 
         <ImageView
+            android:id="@+id/glide_top"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:src="@drawable/top"/>
+            android:layout_weight="30" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -89,8 +90,7 @@
             android:id="@+id/img_top"
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="56"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_weight="56" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -110,9 +110,9 @@
                 android:layout_height="0px">
 
                 <ImageView
+                    android:id="@+id/glide_trune"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/rune"/>
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
                     android:visibility="visible"
@@ -136,8 +136,7 @@
                 <ImageView
                     android:id="@+id/t_shoe"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/shoe"/>
+                    android:layout_height="match_parent"/>
 
                 <LinearLayout
                     android:id="@+id/shoe_top"
@@ -164,7 +163,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_t"/>
 
             <LinearLayout
@@ -200,7 +198,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_t"/>
 
             <LinearLayout
@@ -234,6 +231,7 @@
         android:layout_weight="50"/>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="60"
@@ -246,10 +244,10 @@
             android:layout_weight="30"/>
 
         <ImageView
+            android:id="@+id/glide_jungle"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:src="@drawable/jungle"/>
+            android:layout_weight="30" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -260,8 +258,7 @@
             android:id="@+id/img_jungle"
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="56"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_weight="56"/>
 
         <LinearLayout
             android:layout_width="0px"
@@ -281,9 +278,9 @@
                 android:layout_height="0px">
 
                 <ImageView
+                    android:id="@+id/glide_jrune"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/rune"/>
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
                     android:visibility="visible"
@@ -307,8 +304,7 @@
                 <ImageView
                     android:id="@+id/j_shoe"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/shoe"/>
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
                     android:id="@+id/shoe_jungle"
@@ -335,7 +331,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_j"/>
 
             <LinearLayout
@@ -371,7 +366,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_j"/>
 
             <LinearLayout
@@ -405,6 +399,7 @@
         android:layout_weight="50"/>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="60"
@@ -417,10 +412,10 @@
             android:layout_weight="30"/>
 
         <ImageView
+            android:id="@+id/glide_mid"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:src="@drawable/mid"/>
+            android:layout_weight="30" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -431,8 +426,7 @@
             android:id="@+id/img_mid"
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="56"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_weight="56" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -452,9 +446,9 @@
                 android:layout_height="0px">
 
                 <ImageView
+                    android:id="@+id/glide_mrune"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/rune"/>
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
                     android:visibility="visible"
@@ -478,8 +472,7 @@
                 <ImageView
                     android:id="@+id/m_shoe"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/shoe"/>
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
                     android:id="@+id/shoe_mid"
@@ -506,7 +499,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_m"/>
 
             <LinearLayout
@@ -542,7 +534,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_m"/>
 
             <LinearLayout
@@ -576,6 +567,7 @@
         android:layout_weight="50"/>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="60"
@@ -588,10 +580,10 @@
             android:layout_weight="30"/>
 
         <ImageView
+            android:id="@+id/glide_ad"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:src="@drawable/bottom"/>
+            android:layout_weight="30" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -602,8 +594,7 @@
             android:id="@+id/img_ad"
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="56"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_weight="56" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -623,9 +614,9 @@
                 android:layout_height="0px">
 
                 <ImageView
+                    android:id="@+id/glide_arune"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/rune"/>
+                    android:layout_height="match_parent" />
 
                 <LinearLayout
                     android:visibility="visible"
@@ -649,8 +640,7 @@
                 <ImageView
                     android:id="@+id/a_shoe"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/shoe"/>
+                    android:layout_height="match_parent"/>
 
                 <LinearLayout
                     android:id="@+id/shoe_ad"
@@ -677,7 +667,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_a"/>
 
             <LinearLayout
@@ -713,7 +702,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_a"/>
 
             <LinearLayout
@@ -747,6 +735,7 @@
         android:layout_weight="50"/>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="60"
@@ -759,10 +748,10 @@
             android:layout_weight="30"/>
 
         <ImageView
+            android:id="@+id/glide_sup"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
-            android:src="@drawable/support"/>
+            android:layout_weight="30" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -773,8 +762,7 @@
             android:id="@+id/img_sup"
             android:layout_width="0px"
             android:layout_height="match_parent"
-            android:layout_weight="56"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_weight="56" />
 
         <LinearLayout
             android:layout_width="0px"
@@ -794,9 +782,9 @@
                 android:layout_height="0px">
 
                 <ImageView
+                    android:id="@+id/glide_srune"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/rune"/>
+                    android:layout_height="match_parent"/>
 
                 <LinearLayout
                     android:visibility="visible"
@@ -820,8 +808,7 @@
                 <ImageView
                     android:id="@+id/s_shoe"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/shoe"/>
+                    android:layout_height="match_parent"/>
 
                 <LinearLayout
                     android:id="@+id/shoe_sup"
@@ -848,7 +835,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell1_s"/>
 
             <LinearLayout
@@ -884,7 +870,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/ic_launcher"
                 android:id="@+id/img_spell2_s"/>
 
             <LinearLayout
