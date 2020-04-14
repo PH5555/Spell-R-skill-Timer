@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
     ArrayList arrayList = new ArrayList<>();
     String platform;
+    final int UNCONNECTED = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,20 +68,36 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String name = edt_id.getText().toString();
+                if(InternetCheck()) {
+                    String name = edt_id.getText().toString();
 
-                if(name.getBytes().length <= 0) {
-                    Toast.makeText(getApplicationContext(), "소환사명을 입력해주세요", Toast.LENGTH_SHORT).show();
+                    if(name.getBytes().length <= 0) {
+                        Toast.makeText(getApplicationContext(), "소환사명을 입력해주세요", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        Intent intent = new Intent(LoginActivity.this, RiotApiConnet.class);
+                        intent.putExtra("name", edt_id.getText().toString());
+                        intent.putExtra("platform", platform);
+                        startActivity(intent);
+                        finish();
+                    }
                 }
                 else {
-                    Intent intent = new Intent(LoginActivity.this, RiotApiConnet.class);
-                    intent.putExtra("name", edt_id.getText().toString());
-                    intent.putExtra("platform", platform);
-                    startActivity(intent);
-                    finish();
+                    Toast.makeText(getApplicationContext(), "인터넷 연결을 확인해주세요", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    public boolean InternetCheck() {
+        int status = NetworkStatus.getConnectivityStatus(getApplicationContext());
+        if(status == UNCONNECTED) {
+            Toast.makeText(this, "인터넷 연결을 확인해주세요!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }
 
