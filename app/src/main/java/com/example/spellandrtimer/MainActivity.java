@@ -48,11 +48,12 @@ public class MainActivity extends AppCompatActivity {
     ImageView t_shoe, j_shoe, m_shoe, a_shoe, s_shoe;
     ImageView glide_top,glide_jungle,glide_mid,glide_ad,glide_sup,glide_trune,glide_jrune,glide_mrune,glide_arune,glide_srune;
     Switch vib;
+    Button swap;
     Boolean checkvib = false;
     Boolean[] checkTime = new Boolean[10];
     Boolean[] checkItem = new Boolean[5]; //아이오니아 아이템 클릭 시 true
     SoundPool sp;
-    int soundID;
+    int soundID, swapline1, swaplin2;
     private AdView adBanner;
     private InterstitialAd adFull;
 
@@ -153,13 +154,14 @@ public class MainActivity extends AppCompatActivity {
         glide_arune = findViewById(R.id.glide_arune);
         glide_srune = findViewById(R.id.glide_srune);
         vib = findViewById(R.id.vib);
+        swap = findViewById(R.id.btn_swap);
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713"); //배너광고 아이디 입력
         adBanner = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adBanner.loadAd(adRequest);
 
-        adFull = new InterstitialAd(this);
+        adFull = new InterstitialAd(this); //전면광고 아이디 입력
         adFull.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         adFull.loadAd(new AdRequest.Builder().build());
 
@@ -198,15 +200,45 @@ public class MainActivity extends AppCompatActivity {
         setImage(img_spell1_a,img_spell2_a, img_ad, rune_ad, champLiine[3]);
         setImage(img_spell1_s,img_spell2_s, img_sup, rune_sup, champLiine[4]);
 
+        swap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CustomDialog customDialog = new CustomDialog(MainActivity.this);
+                customDialog.setDialogListner(new CustomDialog.CustomDialogListener() {
+                    @Override
+                    public void getData(int line1, int line2) {
+                        CurrentData temp;
+                        temp = champLiine[line1];
+                        champLiine[line1] = champLiine[line2];
+                        champLiine[line2] = temp;
+
+                        setImage(img_spell1_t,img_spell2_t, img_top, rune_top, champLiine[0]);
+                        setImage(img_spell1_j,img_spell2_j, img_jungle, rune_jungle, champLiine[1]);
+                        setImage(img_spell1_m,img_spell2_m, img_mid, rune_mid, champLiine[2]);
+                        setImage(img_spell1_a,img_spell2_a, img_ad, rune_ad, champLiine[3]);
+                        setImage(img_spell1_s,img_spell2_s, img_sup, rune_sup, champLiine[4]);
+                    }
+
+                    @Override
+                    public void onNegativeClicked() {
+
+                    }
+                });
+                customDialog.show();
+            }
+        });
+
         img_spell1_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(checkTime[0]) {
                     checkTime[0] = false;
+                    ad_spell1.setVisibility(View.GONE);
                     setCoolDown(ad_spell1, txt_aspell1, (int) champLiine[3].getSpell1id(), 0, champLiine[3], checkItem[3]);
                 }
                 else {
                     checkTime[0] = true;
+                    ad_spell1.setVisibility(View.VISIBLE);
                     setCoolDown(ad_spell1, txt_aspell1, (int) champLiine[3].getSpell1id(), 0,champLiine[3], checkItem[3]);
                 }
             }
@@ -217,10 +249,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[1]) {
                     checkTime[1] = false;
+                    ad_spell2.setVisibility(View.GONE);
                     setCoolDown(ad_spell2, txt_aspell2, (int) champLiine[3].getSpell2id(), 1, champLiine[3], checkItem[3]);
                 }
                 else {
                     checkTime[1] = true;
+                    ad_spell2.setVisibility(View.VISIBLE);
                     setCoolDown(ad_spell2, txt_aspell2, (int) champLiine[3].getSpell2id(), 1, champLiine[3], checkItem[3]);
                 }
             }
@@ -231,10 +265,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[2]) {
                     checkTime[2] = false;
+                    sup_spell1.setVisibility(View.GONE);
                     setCoolDown(sup_spell1, txt_sspell1, (int) champLiine[4].getSpell1id(), 2, champLiine[4], checkItem[4]);
                 }
                 else {
                     checkTime[2] = true;
+                    sup_spell1.setVisibility(View.VISIBLE);
                     setCoolDown(sup_spell1, txt_sspell1, (int) champLiine[4].getSpell1id(), 2, champLiine[4], checkItem[4]);
                 }
             }
@@ -245,10 +281,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[3]) {
                     checkTime[3] = false;
+                    sup_spell2.setVisibility(View.GONE);
                     setCoolDown(sup_spell2, txt_sspell2, (int) champLiine[4].getSpell2id(), 3, champLiine[4], checkItem[4]);
                 }
                 else {
                     checkTime[3] = true;
+                    sup_spell2.setVisibility(View.VISIBLE);
                     setCoolDown(sup_spell2, txt_sspell2, (int) champLiine[4].getSpell2id(), 3, champLiine[4], checkItem[4]);
                 }
             }
@@ -259,10 +297,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[4]) {
                     checkTime[4] = false;
+                    mid_spell1.setVisibility(View.GONE);
                     setCoolDown(mid_spell1, txt_mspell1, (int) champLiine[2].getSpell1id(), 4, champLiine[2], checkItem[2]);
                 }
                 else {
                     checkTime[4] = true;
+                    mid_spell1.setVisibility(View.VISIBLE);
                     setCoolDown(mid_spell1, txt_mspell1, (int) champLiine[2].getSpell1id(), 4, champLiine[2], checkItem[2]);
                 }
             }
@@ -273,10 +313,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[5]) {
                     checkTime[5] = false;
+                    mid_spell2.setVisibility(View.GONE);
                     setCoolDown(mid_spell2, txt_mspell2, (int) champLiine[2].getSpell2id(), 5, champLiine[2], checkItem[2]);
                 }
                 else {
                     checkTime[5] = true;
+                    mid_spell2.setVisibility(View.VISIBLE);
                     setCoolDown(mid_spell2, txt_mspell2, (int) champLiine[2].getSpell2id(), 5, champLiine[2], checkItem[2]);
                 }
             }
@@ -287,10 +329,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[6]) {
                     checkTime[6] = false;
+                    jungle_spell1.setVisibility(View.GONE);
                     setCoolDown(jungle_spell1, txt_jspell1, (int) champLiine[1].getSpell1id(), 6, champLiine[1], checkItem[1]);
                 }
                 else {
                     checkTime[6] = true;
+                    jungle_spell1.setVisibility(View.VISIBLE);
                     setCoolDown(jungle_spell1, txt_jspell1, (int) champLiine[1].getSpell1id(), 6 ,champLiine[1], checkItem[1]);
                 }
             }
@@ -301,10 +345,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[7]) {
                     checkTime[7] = false;
+                    jungle_spell2.setVisibility(View.GONE);
                     setCoolDown(jungle_spell2, txt_jspell2, (int) champLiine[1].getSpell2id(), 7, champLiine[1], checkItem[1]);
                 }
                 else {
                     checkTime[7] = true;
+                    jungle_spell2.setVisibility(View.VISIBLE);
                     setCoolDown(jungle_spell2, txt_jspell2, (int) champLiine[1].getSpell2id(), 7, champLiine[1], checkItem[1]);
                 }
             }
@@ -315,10 +361,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[8]) {
                     checkTime[8] = false;
+                    top_spell1.setVisibility(View.GONE);
                     setCoolDown(top_spell1, txt_tspell1, (int) champLiine[0].getSpell1id(), 8, champLiine[0], checkItem[0]);
                 }
                 else {
                     checkTime[8] = true;
+                    top_spell1.setVisibility(View.VISIBLE);
                     setCoolDown(top_spell1, txt_tspell1, (int) champLiine[0].getSpell1id(), 8, champLiine[0], checkItem[0]);
                 }
             }
@@ -329,10 +377,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(checkTime[9]) {
                     checkTime[9] = false;
+                    top_spell2.setVisibility(View.GONE);
                     setCoolDown(top_spell2, txt_tspell2, (int) champLiine[0].getSpell2id(), 9, champLiine[0], checkItem[0]);
                 }
                 else {
                     checkTime[9] = true;
+                    top_spell2.setVisibility(View.VISIBLE);
                     setCoolDown(top_spell2, txt_tspell2, (int) champLiine[0].getSpell2id(), 9, champLiine[0], checkItem[0]);
                 }
             }
@@ -408,7 +458,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        vib.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        vib.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() { //진동 스위치 버튼 체크
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b) {
@@ -446,16 +496,9 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(this).load(getResources().getIdentifier(resspell1,"drawable", packName)).into(spell1);
         Glide.with(this).load(getResources().getIdentifier(resspell2,"drawable", packName)).into(spell2);
         Glide.with(this).load(getResources().getIdentifier(rescham,"drawable", packName)).into(champ);
-//
-//        spell1.setImageResource(getResources().getIdentifier(resspell1,"drawable", packName));
-//        spell2.setImageResource(getResources().getIdentifier(resspell2,"drawable", packName));
-//        champ.setImageResource(getResources().getIdentifier(rescham,"drawable", packName));
     }
 
     void setCoolDown(final LinearLayout setvisible, TextView text, int spell, final int check, CurrentData data, Boolean item) {
-
-        //함수 인자 boolean item 추가
-        //true 시 10% 쿨감
 
         boolean isTrue = false;
 
@@ -490,11 +533,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onTick(long l) {
                     if(checkTime[i]) {
-                        setvisible.setVisibility(View.VISIBLE);
                         cooldownTxt.setText(String.format(Locale.getDefault(), "%d", l / 1000L));
                     }
                     else {
-                        setvisible.setVisibility(View.GONE);
                         cancel();
                     }
                 }
@@ -507,7 +548,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }.start();
         }
-
     }
 
     void setChampLine(CurrentData data[]) {
@@ -565,9 +605,11 @@ public class MainActivity extends AppCompatActivity {
     void soundMake(Boolean check) {
         if(check) {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            vibrator.vibrate(500);
+            vibrator.vibrate(1000);
         }
         else {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(1000);
             sp.play(soundID,1,1,0,0,1);
         }
     }
