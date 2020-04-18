@@ -1,4 +1,4 @@
-package com.example.spellandrtimer;
+package com.dongdong.spellandrtimer;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
-import java.util.*;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,10 +25,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-
-import javax.security.auth.login.LoginException;
 
 
 public class RiotApiConnet extends AppCompatActivity {

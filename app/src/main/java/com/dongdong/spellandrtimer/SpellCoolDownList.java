@@ -1,4 +1,4 @@
-package com.example.spellandrtimer;
+package com.dongdong.spellandrtimer;
 
 public class SpellCoolDownList {
     int getCool(int s) {

@@ -1,4 +1,4 @@
-package com.example.spellandrtimer;
+package com.dongdong.spellandrtimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;

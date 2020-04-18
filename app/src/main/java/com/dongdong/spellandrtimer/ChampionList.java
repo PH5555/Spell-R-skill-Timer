@@ -1,4 +1,4 @@
-package com.example.spellandrtimer;
+package com.dongdong.spellandrtimer;
 
 public class ChampionList {
     String getName(int s) { //챔피언 148개 현재 133개

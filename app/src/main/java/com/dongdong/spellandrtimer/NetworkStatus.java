@@ -1,4 +1,4 @@
-package com.example.spellandrtimer;
+package com.dongdong.spellandrtimer;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
