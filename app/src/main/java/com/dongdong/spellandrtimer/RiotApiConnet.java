@@ -248,7 +248,8 @@ public class RiotApiConnet extends AppCompatActivity {
                 }
 
                 if(current.getString("summonerName").equals(name) ||
-                        current.getString("summonerName").toLowerCase().equals(name.toLowerCase())) {
+                        current.getString("summonerName").toLowerCase().equals(name.toLowerCase()) ||
+                        current.getString("summonerName").replaceAll(" ","").toLowerCase().equals(name.toLowerCase().replaceAll(" ",""))) {
                     TeamID = (int) current.getLong("teamId");
                 }
 

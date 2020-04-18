@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     Boolean[] checkTime = new Boolean[10];
     Boolean[] checkItem = new Boolean[5]; //아이오니아 아이템 클릭 시 true
     boolean[] checkThread = new boolean[10];
+    boolean[] checkThreadisrunnig = new boolean[20];
     private AdView adBanner;
     private InterstitialAd adFull;
     CountDownTimer count1,count1_shoe,count2,count2_shoe,count3,count3_shoe,count4,count4_shoe,count5,count5_shoe,count6,count6_shoe,count7,count7_shoe,count8,count8_shoe,count9,count9_shoe,count10,count10_shoe;
@@ -76,6 +77,72 @@ public class MainActivity extends AppCompatActivity {
              });
         AlertDialog alertDialog = alert.create();
         alertDialog.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if(checkThreadisrunnig[0]) {
+            count1_shoe.cancel();
+        }
+        if(checkThreadisrunnig[1]) {
+            count1.cancel();
+        }
+        if(checkThreadisrunnig[2]) {
+            count2_shoe.cancel();
+        }
+        if(checkThreadisrunnig[3]) {
+            count2.cancel();
+        }
+        if(checkThreadisrunnig[4]) {
+            count3_shoe.cancel();
+        }
+        if(checkThreadisrunnig[5]) {
+            count3.cancel();
+        }
+        if(checkThreadisrunnig[6]) {
+            count4_shoe.cancel();
+        }
+        if(checkThreadisrunnig[7]) {
+            count4.cancel();
+        }
+        if(checkThreadisrunnig[8]) {
+            count5_shoe.cancel();
+        }
+        if(checkThreadisrunnig[9]) {
+            count5.cancel();
+        }
+        if(checkThreadisrunnig[10]) {
+            count6_shoe.cancel();
+        }
+        if(checkThreadisrunnig[11]) {
+            count6.cancel();
+        }
+        if(checkThreadisrunnig[12]) {
+            count7_shoe.cancel();
+        }
+        if(checkThreadisrunnig[13]) {
+            count7.cancel();
+        }
+        if(checkThreadisrunnig[14]) {
+            count8_shoe.cancel();
+        }
+        if(checkThreadisrunnig[15]) {
+            count8.cancel();
+        }
+        if(checkThreadisrunnig[16]) {
+            count9_shoe.cancel();
+        }
+        if(checkThreadisrunnig[17]) {
+            count9.cancel();
+        }
+        if(checkThreadisrunnig[18]) {
+            count10_shoe.cancel();
+        }
+        if(checkThreadisrunnig[19]) {
+            count10.cancel();
+        }
     }
 
     @Override
@@ -147,13 +214,13 @@ public class MainActivity extends AppCompatActivity {
         vib = findViewById(R.id.vib);
         help = findViewById(R.id.btn_help);
 
-        MobileAds.initialize(this, "ca-app-pub-5875725796538353/6130209488"); //배너광고 아이디 입력
+        MobileAds.initialize(this, "ca-app-pub-39402560" + "99942544~3347511713"); //배너광고 아이디 입력
         adBanner = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adBanner.loadAd(adRequest);
 
         adFull = new InterstitialAd(this); //전면광고 아이디 입력
-        adFull.setAdUnitId("ca-app-pub-5875725796538353/1999392785");
+        adFull.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         adFull.loadAd(new AdRequest.Builder().build());
 
         Glide.with(this).load(R.drawable.top).into(glide_top);
@@ -178,6 +245,9 @@ public class MainActivity extends AppCompatActivity {
         }
         for (int i = 0; i < 5; i++) {
             checkItem[i] = false;
+        }
+        for (int i = 0; i < 20; i++) {
+            checkThreadisrunnig[i] = false;
         }
 
         Intent intent = getIntent();
@@ -487,9 +557,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[0] = false;
                     ad_spell1.setVisibility(View.GONE);
                     if(checkThread[0]) {
+                        checkThreadisrunnig[0] = false;
                         count1_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[1] = false;
                         count1.cancel();
                     }
                 }
@@ -498,10 +570,12 @@ public class MainActivity extends AppCompatActivity {
                     ad_spell1.setVisibility(View.VISIBLE);
 
                     if(checkItem[3]) {
+                        checkThreadisrunnig[0] = true;
                         checkThread[0] = true;
                         count1_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[1] = true;
                         checkThread[0] = false;
                         count1.start();
                     }
@@ -516,9 +590,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[1] = false;
                     ad_spell2.setVisibility(View.GONE);
                     if(checkThread[1]) {
+                        checkThreadisrunnig[2] = false;
                         count2_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[3] = false;
                         count2.cancel();
                     }
                 }
@@ -526,10 +602,12 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[1] = true;
                     ad_spell2.setVisibility(View.VISIBLE);
                     if(checkItem[3]) {
+                        checkThreadisrunnig[2] = true;
                         checkThread[1] = true;
                         count2_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[3] = true;
                         checkThread[1] = false;
                         count2.start();
                     }
@@ -544,9 +622,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[2] = false;
                     sup_spell1.setVisibility(View.GONE);
                     if(checkThread[2]) {
+                        checkThreadisrunnig[4] = false;
                         count3_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[5] = false;
                         count3.cancel();
                     }
                 }
@@ -555,10 +635,12 @@ public class MainActivity extends AppCompatActivity {
                     sup_spell1.setVisibility(View.VISIBLE);
 
                     if(checkItem[4]) {
+                        checkThreadisrunnig[4] = true;
                         checkThread[2] = true;
                         count3_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[5] = true;
                         checkThread[2] = false;
                         count3.start();
                     }
@@ -573,9 +655,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[3] = false;
                     sup_spell2.setVisibility(View.GONE);
                     if(checkThread[3]) {
+                        checkThreadisrunnig[6] = false;
                         count4_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[7] = false;
                         count4.cancel();
                     }
                 }
@@ -583,10 +667,12 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[3] = true;
                     sup_spell2.setVisibility(View.VISIBLE);
                     if(checkItem[4]) {
+                        checkThreadisrunnig[6] = true;
                         checkThread[3] = true;
                         count4_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[7] = true;
                         checkThread[3] = false;
                         count4.start();
                     }
@@ -601,9 +687,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[4] = false;
                     mid_spell1.setVisibility(View.GONE);
                     if(checkThread[4]) {
+                        checkThreadisrunnig[8] = false;
                         count5_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[9] = false;
                         count5.cancel();
                     }
                 }
@@ -611,10 +699,12 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[4] = true;
                     mid_spell1.setVisibility(View.VISIBLE);
                     if(checkItem[2]) {
+                        checkThreadisrunnig[8] = true;
                         checkThread[4] = true;
                         count5_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[9] = true;
                         checkThread[4] = false;
                         count5.start();
                     }
@@ -629,9 +719,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[5] = false;
                     mid_spell2.setVisibility(View.GONE);
                     if(checkThread[5]) {
+                        checkThreadisrunnig[10] = false;
                         count6_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[11] = false;
                         count6.cancel();
                     }
                 }
@@ -639,10 +731,12 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[5] = true;
                     mid_spell2.setVisibility(View.VISIBLE);
                     if(checkItem[2]) {
+                        checkThreadisrunnig[10] = true;
                         checkThread[5] = true;
                         count6_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[11] = true;
                         checkThread[5] = false;
                         count6.start();
                     }
@@ -658,9 +752,11 @@ public class MainActivity extends AppCompatActivity {
                     jungle_spell1.setVisibility(View.GONE);
 
                     if(checkThread[6]) {
+                        checkThreadisrunnig[12] = false;
                         count7_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[13] = false;
                         count7.cancel();
                     }
                 }
@@ -668,10 +764,12 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[6] = true;
                     jungle_spell1.setVisibility(View.VISIBLE);
                     if(checkItem[1]) {
+                        checkThreadisrunnig[12] = true;
                         checkThread[6] = true;
                         count7_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[13] = true;
                         checkThread[6] = false;
                         count7.start();
                     }
@@ -686,9 +784,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[7] = false;
                     jungle_spell2.setVisibility(View.GONE);
                     if(checkThread[7]) {
+                        checkThreadisrunnig[14] = false;
                         count8_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[15] = false;
                         count8.cancel();
                     }
                 }
@@ -696,10 +796,12 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[7] = true;
                     jungle_spell2.setVisibility(View.VISIBLE);
                     if(checkItem[1]){
+                        checkThreadisrunnig[14] = true;
                         checkThread[7] = true;
                         count8_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[15] = true;
                         checkThread[7] = false;
                         count8.start();
                     }
@@ -714,9 +816,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[8] = false;
                     top_spell1.setVisibility(View.GONE);
                     if(checkThread[8]) {
+                        checkThreadisrunnig[16] = false;
                         count9_shoe.cancel();
                     }
                     else{
+                        checkThreadisrunnig[17] = false;
                         count9.cancel();
                     }
                 }
@@ -724,10 +828,12 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[8] = true;
                     top_spell1.setVisibility(View.VISIBLE);
                     if(checkItem[0]) {
+                        checkThreadisrunnig[16] = true;
                         checkThread[8] = true;
                         count9_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[17] = true;
                         checkThread[8] = false;
                         count9.start();
                     }
@@ -742,9 +848,11 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[9] = false;
                     top_spell2.setVisibility(View.GONE);
                     if(checkThread[9]) {
+                        checkThreadisrunnig[18] = false;
                         count10_shoe.cancel();
                     }
                     else {
+                        checkThreadisrunnig[19] = false;
                         count10.cancel();
                     }
                 }
@@ -752,10 +860,12 @@ public class MainActivity extends AppCompatActivity {
                     checkTime[9] = true;
                     top_spell2.setVisibility(View.VISIBLE);
                     if(checkItem[0]) {
+                        checkThreadisrunnig[18] = true;
                         checkThread[9] = true;
                         count10_shoe.start();
                     }
                     else {
+                        checkThreadisrunnig[19] = true;
                         checkThread[9] = false;
                         count10.start();
                     }
