@@ -8,8 +8,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -34,6 +36,7 @@ import com.google.android.gms.ads.MobileAds;
 
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -53,20 +56,10 @@ public class MainActivity extends AppCompatActivity {
     Boolean[] checkTime = new Boolean[10];
     Boolean[] checkItem = new Boolean[5]; //아이오니아 아이템 클릭 시 true
     boolean[] checkThread = new boolean[10];
-    SoundPool sp;
-    int soundID;
     private AdView adBanner;
     private InterstitialAd adFull;
-    CountDownTimer count1,count1_shoe;
-    CountDownTimer count2,count2_shoe;
-    CountDownTimer count3,count3_shoe;
-    CountDownTimer count4,count4_shoe;
-    CountDownTimer count5,count5_shoe;
-    CountDownTimer count6,count6_shoe;
-    CountDownTimer count7,count7_shoe;
-    CountDownTimer count8,count8_shoe;
-    CountDownTimer count9,count9_shoe;
-    CountDownTimer count10,count10_shoe;
+    CountDownTimer count1,count1_shoe,count2,count2_shoe,count3,count3_shoe,count4,count4_shoe,count5,count5_shoe,count6,count6_shoe,count7,count7_shoe,count8,count8_shoe,count9,count9_shoe,count10,count10_shoe;
+    SoundPlayer soundPlayer;
 
     @Override
     public void onBackPressed() {
@@ -167,8 +160,7 @@ public class MainActivity extends AppCompatActivity {
         vib = findViewById(R.id.vib);
         help = findViewById(R.id.btn_help);
 
-        MobileAds.initialize(this, "ca-app-pub-39402560" +
-                "99942544~3347511713"); //배너광고 아이디 입력
+        MobileAds.initialize(this, "ca-app-pub-39402560" + "99942544~3347511713"); //배너광고 아이디 입력
         adBanner = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adBanner.loadAd(adRequest);
@@ -204,8 +196,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         data = (CurrentData[]) intent.getSerializableExtra("data");
         setChampLine(data);
-        sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-        soundID = sp.load(this, R.raw.sound, 1);
+        soundPlayer.initSound(getApplicationContext());
 
         setImage(img_spell1_t,img_spell2_t, img_top, rune_top, champLiine[0]);
         setImage(img_spell1_j,img_spell2_j, img_jungle, rune_jungle, champLiine[1]);
@@ -252,7 +243,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[3].getSpell1id(), 3);
                 ad_spell1.setVisibility(View.GONE);
             }
         };
@@ -265,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[3].getSpell1id(), 3);
                 ad_spell1.setVisibility(View.GONE);
             }
         };
@@ -278,7 +269,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[3].getSpell2id(), 3);
                 ad_spell2.setVisibility(View.GONE);
             }
         };
@@ -291,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[3].getSpell2id(), 3);
                 ad_spell2.setVisibility(View.GONE);
             }
         };
@@ -304,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[4].getSpell1id(), 4);
                 sup_spell1.setVisibility(View.GONE);
             }
         };
@@ -317,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[4].getSpell1id(), 4);
                 sup_spell1.setVisibility(View.GONE);
             }
         };
@@ -330,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[4].getSpell2id(), 4);
                 sup_spell2.setVisibility(View.GONE);
             }
         };
@@ -343,7 +334,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[4].getSpell2id(), 4);
                 sup_spell2.setVisibility(View.GONE);
             }
         };
@@ -356,7 +347,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[2].getSpell1id(), 2);
                 mid_spell1.setVisibility(View.GONE);
             }
         };
@@ -369,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[2].getSpell1id(), 2);
                 mid_spell1.setVisibility(View.GONE);
             }
         };
@@ -382,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[2].getSpell2id(), 2);
                 mid_spell2.setVisibility(View.GONE);
             }
         };
@@ -395,7 +386,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[2].getSpell2id(), 2);
                 mid_spell2.setVisibility(View.GONE);
             }
         };
@@ -408,7 +399,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[1].getSpell1id(), 1);
                 jungle_spell1.setVisibility(View.GONE);
             }
         };
@@ -421,7 +412,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[1].getSpell1id(), 1);
                 jungle_spell1.setVisibility(View.GONE);
             }
         };
@@ -434,7 +425,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[1].getSpell2id(), 1);
                 jungle_spell2.setVisibility(View.GONE);
             }
         };
@@ -447,7 +438,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[1].getSpell2id(), 1);
                 jungle_spell2.setVisibility(View.GONE);
             }
         };
@@ -460,7 +451,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[0].getSpell1id(), 0);
                 top_spell1.setVisibility(View.GONE);
             }
         };
@@ -473,7 +464,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[0].getSpell1id(), 0);
                 top_spell1.setVisibility(View.GONE);
             }
         };
@@ -486,7 +477,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[0].getSpell2id(), 0);
                 top_spell2.setVisibility(View.GONE);
             }
         };
@@ -499,7 +490,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                soundMake(checkvib);
+                soundMake(checkvib, (int) champLiine[0].getSpell2id(), 0);
                 top_spell2.setVisibility(View.GONE);
             }
         };
@@ -983,15 +974,45 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void soundMake(Boolean check) {
+    void soundMake(Boolean check, int spell, int line) {
         if(check) {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            vibrator.vibrate(1000);
+            vibrator.vibrate(1500);
         }
         else {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            vibrator.vibrate(1000);
-            sp.play(soundID,1,1,0,0,1);
+            vibrator.vibrate(1500);
+            soundPlayer.play(getLineSound(line));
+            soundPlayer.play(getSpellSound(spell));
         }
     }
+
+    int getSpellSound(int spell) {
+        switch (spell) {
+            case 21 : return (R.raw.barrier);
+            case 1 : return(R.raw.cleanse);
+            case 14 : return (R.raw.ignite);
+            case 3 : return (R.raw.exhaust);
+            case 4 : return (R.raw.flash);
+            case 6 : return (R.raw.ghost);
+            case 7 : return (R.raw.heal);
+            case 13 : return (R.raw.clarity);
+            case 11 : return (R.raw.smite);
+            case 32 : return (R.raw.mark);
+            case 12 : return (R.raw.teleport);
+        }
+        return 0;
+    }
+
+    int getLineSound(int line) {
+        switch (line) {
+            case 0 : return (R.raw.top);
+            case 1 : return (R.raw.jungle);
+            case 2 : return (R.raw.mid);
+            case 3 : return (R.raw.ad);
+            case 4 : return (R.raw.support);
+        }
+        return 0;
+    }
+
 }
