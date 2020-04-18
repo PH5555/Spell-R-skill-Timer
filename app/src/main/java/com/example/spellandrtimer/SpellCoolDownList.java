@@ -17,7 +17,7 @@ public class SpellCoolDownList {
 //            case 31 : return "poro toss"; //포로 던지기 - 전설의 포로왕
 //            case 33 : return "nexus siege";
 //            case 34 : return "nexus siege";
-            case 11 : return 15000; //강타 첫번째 15초 두번째 90초 90초에 한개씩 충전
+            case 11 : return 90000; //강타 첫번째 15초 두번째 90초 90초에 한개씩 충전
             case 39 : return 48000; //표식 - 칼바람
             case 32 : return 48000; //표식 - 칼바람
             case 12 : return 420000; //순간이동 레벨에 따라 다름?

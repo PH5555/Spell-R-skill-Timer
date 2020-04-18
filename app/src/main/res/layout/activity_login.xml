@@ -208,6 +208,7 @@
             android:layout_weight="105"/>
 
         <TextView
+            android:clickable="true"
             android:gravity="center"
             android:layout_gravity="center"
             android:id="@+id/textview"

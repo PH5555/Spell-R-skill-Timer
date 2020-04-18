@@ -1,21 +1,14 @@
 package com.example.spellandrtimer;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.SoundPool;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.PersistableBundle;
 import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
@@ -26,17 +19,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-
-import org.w3c.dom.Text;
-
-import java.util.HashMap;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -160,13 +147,13 @@ public class MainActivity extends AppCompatActivity {
         vib = findViewById(R.id.vib);
         help = findViewById(R.id.btn_help);
 
-        MobileAds.initialize(this, "ca-app-pub-39402560" + "99942544~3347511713"); //배너광고 아이디 입력
+        MobileAds.initialize(this, "ca-app-pub-5875725796538353/6130209488"); //배너광고 아이디 입력
         adBanner = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adBanner.loadAd(adRequest);
 
         adFull = new InterstitialAd(this); //전면광고 아이디 입력
-        adFull.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        adFull.setAdUnitId("ca-app-pub-5875725796538353/1999392785");
         adFull.loadAd(new AdRequest.Builder().build());
 
         Glide.with(this).load(R.drawable.top).into(glide_top);
@@ -232,8 +219,6 @@ public class MainActivity extends AppCompatActivity {
 //                customDialog.show();
 //            }
 //        });
-
-        //TODO:음성
 
         count1 = new CountDownTimer(setCoolDown((int) champLiine[3].getSpell1id(), champLiine[3], false), 1000) {
             @Override
@@ -856,6 +841,15 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     checkvib = false;
                 }
+            }
+        });
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentDialog overlay = new FragmentDialog();
+                overlay.show(fm, "FragmentDialog");
             }
         });
     }

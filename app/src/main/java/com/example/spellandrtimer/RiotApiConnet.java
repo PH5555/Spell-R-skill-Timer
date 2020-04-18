@@ -144,7 +144,7 @@ public class RiotApiConnet extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "서버와의 통신이 원활하지 않습니다. 잠시 후 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                 }
                 else if(errorcode == 404) {
-                    Toast.makeText(getApplicationContext(), "서버와의 통신이 원활하지 않습니다. 잠시 후 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "현재 게임중이 아닙니다.", Toast.LENGTH_SHORT).show();
                 }
                 Intent mintent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(mintent);
