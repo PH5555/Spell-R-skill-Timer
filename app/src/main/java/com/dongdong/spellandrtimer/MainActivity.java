@@ -261,6 +261,18 @@ public class MainActivity extends AppCompatActivity {
         setImage(img_spell1_a,img_spell2_a, img_ad, rune_ad, champLiine[3]);
         setImage(img_spell1_s,img_spell2_s, img_sup, rune_sup, champLiine[4]);
 
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("소리를 켰습니까?");
+        alert.setMessage("소리를 키시면 알림음을 들을 수 있습니다.")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+        AlertDialog alertDialog = alert.create();
+        alertDialog.show();
+
 //        swap.setOnClickListener(new View.OnClickListener() { 라인스왑
 //            @Override
 //            public void onClick(View view) {
