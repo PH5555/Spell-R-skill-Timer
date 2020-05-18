@@ -214,13 +214,13 @@ public class MainActivity extends AppCompatActivity {
         vib = findViewById(R.id.vib);
         help = findViewById(R.id.btn_help);
 
-        MobileAds.initialize(this, "ca-app-pub-39402560" + "99942544~3347511713"); //배너광고 아이디 입력
+        MobileAds.initialize(this, "ca-app-pub-5875725796538353/6130209488"); //배너광고 아이디 입력
         adBanner = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adBanner.loadAd(adRequest);
 
         adFull = new InterstitialAd(this); //전면광고 아이디 입력
-        adFull.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        adFull.setAdUnitId("ca-app-pub-5875725796538353/1999392785");
         adFull.loadAd(new AdRequest.Builder().build());
 
         Glide.with(this).load(R.drawable.top).into(glide_top);
